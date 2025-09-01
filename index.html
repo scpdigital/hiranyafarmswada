@@ -1,52 +1,715 @@
+<!-- 
+  Project: Hiranya Farms Wada
+  Version: 1.0.0
+  Developer: Prathamesh Misal
+  Contact: prathameshamisal@gmail.com
+  Last Updated: September 2025
+  License: MIT
+-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" x-data="{ 
+    mobileMenuOpen: false,
+    currentSlide: 0,
+    slides: [
+        {id: 1, alt: 'Recreation and activities', url: 'public/assets/images/gallery/1.jpg'},
+        {id: 2, alt: 'Recreation and activities', url: 'public/assets/images/gallery/2.jpg'},
+        {id: 3, alt: 'Recreation and activities', url: 'public/assets/images/gallery/3.jpg'},
+        {id: 4, alt: 'Recreation and activities', url: 'public/assets/images/gallery/4.jpg'},
+        {id: 5, alt: 'Recreation and activities', url: 'public/assets/images/gallery/5.jpg'},
+        {id: 7, alt: 'Recreation and activities', url: 'public/assets/images/gallery/7.jpg'},
+		{id: 8, alt: 'Recreation and activities', url: 'public/assets/images/gallery/8.jpg'},
+		{id: 9, alt: 'Recreation and activities', url: 'public/assets/images/gallery/9.jpg'},
+		{id: 10, alt: 'Recreation and activities', url: 'public/assets/images/gallery/10.jpg'},
+		{id: 11, alt: 'Recreation and activities', url: 'public/assets/images/gallery/11.jpg'},
+		{id: 12, alt: 'Recreation and activities', url: 'public/assets/images/gallery/12.jpg'},
+		{id: 13, alt: 'Recreation and activities', url: 'public/assets/images/gallery/13.jpg'},
+		{id: 14, alt: 'Recreation and activities', url: 'public/assets/images/gallery/14.jpg'},
+		{id: 15, alt: 'Recreation and activities', url: 'public/assets/images/gallery/15.jpg'},
+		{id: 16, alt: 'Recreation and activities', url: 'public/assets/images/gallery/16.jpg'}
+    ],
+    next() {
+        this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+    },
+    prev() {
+        this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+    },
+    goToSlide(index) {
+        this.currentSlide = index;
+    },
+    autoAdvance() {
+        setInterval(() => {
+            this.next();
+        }, 5000);
+    }
+}" x-init="autoAdvance()">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hiranya Farms - Coming Soon</title>
-  <style>
-    body, html {
-      height: 100%;
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Primary Meta Tags -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Hiranya Farms, the ideal farmstay in Wada, is designed for families and groups to relax with spacious rooms, mouth-watering meals, a refreshing pool, and fun games">
+	<meta name="keywords" content="best resort in wada, best villa in wada for family, best farmhouse in Wada, villa near Mumbai">
+	<meta name="author" content="Digital Donn">
+	  
+	<!-- Open Graph / Facebook (for social sharing) -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="index.html">
+	<meta property="og:title" content="Hiranya Farms, Wada">
+	<meta property="og:description" content="Breathe Easy, Live Slowly, Find Yourself in Nature’s Embrace">
+	<meta property="og:image" content="public/assets/images/logo/hiranya.png">
+	  
+	<!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="public/favicon2.ico">
+    
+    <title> Hiranya Farms Wada | Best Farmstay in Wada </title>
+    <link rel="canonical" href="index.html" />
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <script defer src="../unpkg.com/alpinejs%403.14.9/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	
+    <!-- Google Analytics (GA4) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-112YR1V86B"></script> -->
+    <script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
 
-    .bg {
-      /* Replace with your GitHub image raw URL */
-      background: url('https://raw.githubusercontent.com/scpdigital/hiranyafarmswada/main/hiranyafarmsbg.jpeg') no-repeat center center/cover;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-align: center;
-    }
+    	gtag('config', 'G-112YR1V86B');
+    </script>
+    <!-- tailwind config -->	
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        hiranya: {
+                            primary: '#4A6B3C',
+                            secondary: '#A3B18A',
+                            accent: '#D4A373',
+                            dark: '#283618',
+                            light: '#FEFAE0'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Lora', 'serif']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- schema code -->	
+    <script type="application/ld+json">
+    {
+	  "@context": "http://schema.org",
+	  "@type": "Hotel",
+	  "name": "Hiranya Farms Wada",
+	  "telephone": "1234567890",
+	  "faxNumber": "1234567890",
+	  "email": "hiranyafarmswada@gmail.com",
+	  "checkinTime": "1970-01-01T12:00+05:30",
+	  "checkoutTime": "1970-01-01T10:00+05:30",
+	  "address": {
+	    "@type": "PostalAddress",
+	    "streetAddress": "Vadavali Tarf Sonale, Sonale Bk., Maharashtra",
+	    "addressLocality": "Wada",
+	    "addressRegion": "Maharashtra",
+	    "postalCode": "421303",
+	    "addressCountry": "India"
+	  },
+	  "audience": {
+	    "@type": "PeopleAudience",
+	    "audienceType": "All"
+	  },
+	  "availableLanguage": ["English", "Hindi", "Marathi"],
+	  "petsAllowed": "False",
+	  "smokingAllowed": "False",
+	  "makesOffer": {
+	    "@type": "Offer",
+	    "acceptedPaymentMethod": [
+	      {
+	        "@type": "PaymentMethod",
+	        "url": "http://purl.org/goodrelations/v1#Cash"
+	      },
+	      {
+	        "@type": "PaymentMethod",
+	        "url": "http://purl.org/goodrelations/v1#MasterCard"
+	      },
+	      {
+	        "@type": "PaymentMethod",
+	        "url": "http://purl.org/goodrelations/v1#VISA"
+	      },
+	      {
+	        "@type": "PaymentMethod",
+	        "url": "http://purl.org/goodrelations/v1#DirectDebit"
+	      }
+	    ]
+	  },
+	  "amenityFeature": [
+	    {
+	      "@type": "LocationFeatureSpecification",
+	      "name": "Free Wi-Fi"
+	    },
+	    {
+	      "@type": "LocationFeatureSpecification",
+	      "name": "Free parking"
+	    },
+	    {
+	      "@type": "LocationFeatureSpecification",
+	      "name": "Air-conditioned"
+	    },
+	    {
+	      "@type": "LocationFeatureSpecification",
+	      "name": "Pool"
+	    },
+	    {
+	      "@type": "LocationFeatureSpecification",
+	      "name": "Kid-friendly"
+	    }
+	  ]
+	}
+    </script>		
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;family=Lora:wght@300;400;600&amp;display=swap');
+        
+        .hero-image {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('public/assets/images/background/main-bg.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .room-card {
+            transition: all 0.3s ease;
+        }
+        
+        .room-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
 
-    h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-    }
+        /* Amenities icons */
+        .amenity-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #EFEAD8;
+            border-radius: 50%;
+            margin: 0 auto;
+            color: #6D8B74;
+            font-size: 36px;
+            transition: all 0.3s ease;
+        }
 
-    .content {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 30px 50px;
-      border-radius: 10px;
-    }
-
-    .content h2 {
-      font-size: 32px;
-      margin: 0;
-    }
-  </style>
+        .amenity-card:hover .amenity-icon {
+            transform: scale(1.1);
+            background-color: #6D8B74;
+            color: #EFEAD8;
+        }
+		footer {
+				margin-bottom: 40px; 
+				}
+    </style>
 </head>
-<body>
-  <div class="bg">
-    <h1>Hiranya Farms</h1>
-    <div class="content">
-      <h2>Coming Soon</h2>
+<body class="font-sans bg-hiranya-light text-hiranya-dark">
+    <!-- Floating Elements 
+    <div class="fixed top-20 left-10 w-16 h-16 bg-hiranya-accent rounded-full opacity-20 animate-float hidden lg:block"></div>
+    <div class="fixed bottom-1/4 right-20 w-24 h-24 bg-hiranya-secondary rounded-full opacity-15 animate-float animation-delay-2000 hidden lg:block"></div> -->
+    
+    <!-- Navigation -->
+    <nav class="bg-white/90 backdrop-blur-md shadow-sm fixed w-full z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">            	
+                <div class="flex items-center">
+                    <a href="index.html">
+                      <img src="public/assets/images/logo/hiranya.png" 
+                           alt="Hiranya Farms Wada"
+                           class="h-10 md:h-20 w-auto">
+                    </a>                	                    
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="outline-none">
+                        <svg class="w-8 h-8 text-hiranya-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            <path x-show="mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="hover:text-hiranya-primary font-medium transition duration-300">Home</a>
+                    <a href="#about" class="hover:text-hiranya-primary font-medium transition duration-300">About Us</a>
+                    <a href="#gallery" class="hover:text-hiranya-primary font-medium transition duration-300">Gallery</a>
+                    <a href="#contact" class="hover:text-hiranya-primary font-medium transition duration-300">Contact</a>
+                    
+                    <!-- Dual Action Dropdown Button -->
+                    <div x-data="{ open: false }" class="relative">
+                        <button @click="open = !open" 
+                                  class="bg-hiranya-accent hover:bg-hiranya-dark px-4 py-2 rounded-lg font-medium transition duration-300 flex items-center">
+                            Book Now <i class="fas fa-chevron-down ml-2 text-sm"></i>
+                        </button>
+                        <div x-show="open" @click.away="open = false" x-transition
+                               class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 border border-gray-200">
+                            <a href="tel:+91-9876543210" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-phone-alt mr-2 text-hiranya-accent"></i> Call Now
+                            </a>
+                            <a href="https://wa.me/919876543210" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                                <i class="fab fa-whatsapp mr-2 text-green-500"></i> WhatsApp
+                            </a>
+                            <a href="mailto:hiranyafields.ware@gmail.com" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-envelope mr-2 text-hiranya-primary"></i> Email
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div x-show="mobileMenuOpen" class="md:hidden mt-4 pb-4 space-y-4 bg-white rounded-lg p-4 shadow-xl">
+                <a href="#" class="block hover:text-hiranya-primary font-medium transition duration-300">Home</a>
+                <a href="#about" class="block hover:text-hiranya-primary font-medium transition duration-300">About Us</a>
+                <a href="#gallery" class="block hover:text-hiranya-primary font-medium transition duration-300">Gallery</a>
+                <a href="#contact" class="block hover:text-hiranya-primary font-medium transition duration-300">Contact</a>
+                
+                <!-- Dual Action Dropdown Button -->
+                <div x-data="{ open: false }" class="relative">
+                    <button @click="open = !open" 
+                              class="bg-hiranya-accent hover:bg-hiranya-dark px-4 py-2 rounded-lg font-medium transition duration-300 flex items-center">
+                        Book Now <i class="fas fa-chevron-down ml-2 text-sm"></i>
+                    </button>
+                    <div x-show="open" @click.away="open = false" x-transition
+                           class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 border border-gray-200">
+                        <a href="tel:+91-9876543210" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                            <i class="fas fa-phone-alt mr-2 text-hiranya-accent"></i> Call Now
+                        </a>
+                        <a href="https://wa.me/919876543210" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                            <i class="fab fa-whatsapp mr-2 text-green-500"></i> WhatsApp
+                        </a>
+                        <a href="mailto:hiranyafields.ware@gmail.com" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                            <i class="fas fa-envelope mr-2 text-hiranya-primary"></i> Email
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-image h-screen flex items-center justify-center text-center text-white relative pt-16">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40"></div>
+        <div class="container mx-auto px-6 z-10">
+            <h1 class="text-9xl md:text-7xl lg:text-8xl font-serif font-bold mb-6">Hiranya Farms</h1>
+            <p class="text-4xl md:text-2xl font-light mb-8 max-w-2xl mx-auto">Breathe Easy, Live Slowly, Find Yourself in Nature’s Embrace.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+               <!-- <button class="bg-white text-hiranya-dark hover:bg-gray-100 px-8 py-3 rounded-full font-medium text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">Explore Cottages</button>
+                <button class="bg-transparent border-2 border-white hover:bg-white/20 px-8 py-3 rounded-full font-medium text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">View Gallery</button>
+				-->
+			</div>
+            <div class="mt-16 animate-bounce">
+                <a href="#about" class="text-white">
+                    <i class="fas fa-chevron-down text-2xl"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- highlighting contact ribbon -->
+    <section class="bg-hiranya-accent text-white py-4">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex flex-col md:flex-row justify-center items-center gap-4">
+                <div class="flex items-center">
+                    <i class="fas fa-phone-alt mr-2 text-xl"></i>
+                    <span class="font-bold text-lg">Call Now:</span>
+                    <a href="tel:+91-9876543210" class="ml-2 text-lg hover:underline">+91-9876543210</a>
+                </div>
+                <div class="hidden md:block">|</div>
+                <div class="flex items-center">
+                    <i class="fas fa-clock mr-2 text-xl"></i>
+                    <span>Open 24/7 for bookings</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rooms Section -->
+    <section id="about" class="py-20 bg-hiranya-secondary">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<span class="text-hiranya-primary text-3xl font-bold uppercase tracking-widest">About Us</span>
+<h2 class="text-7xl font-serif font-bold mt-2">Our Story</h2>
+<div class="w-20 h-1 bg-hiranya-accent mx-auto mt-4"></div>
+</div>
+
+
+		<div class="max-w-4xl mx-auto text-center text-gray-700 leading-relaxed">
+			<p class="mb-6 text-xl">
+			Welcome to <strong>Hiranya Farm</strong>. Our lives have taken us through the world of cinema, where stories like <strong>Harishchandrachi Factory, Elizabeth Ekadashi and Vaalvi</strong> brought us national and international recognition. 
+			Yet, even as awards and applause came our way, our hearts were always drawn back to something quieter, simpler, and perhaps even more meaningful — our love for nature and animals. 
+			I <strong>(Madhugandha)</strong> have often rescued animals from difficult situations, carrying a dream of one day creating a space where they could live freely and safely. 
+			<strong>Paresh</strong>, too, has always been deeply connected with greenery and conservation, guiding young people to value the world we share.
+			</p>
+				<p class="mb-6 text-xl">
+				That dream slowly grew into reality here at <strong>Hiranya Farm</strong> in Wada, Maharashtra. 
+				Today, this is home not just for us, but also for our three loving dogs — Shiva, Shambhu, and Devi — and our two gentle adopted cows, Lakshmi and Saraswati, who have become part of our family. 
+				This farm is a place where you can pause, breathe deeply, spend time with animals, and let nature wrap you in its calm. 
+				When you visit, we don’t just hope you have a holiday — we hope you feel the warmth of being welcomed into a story, one that celebrates kindness, simplicity, and the joy of living close to the earth.
+				</p>
+</div>
+</div>
+</section>
+
+    <!-- Amenities Section -->
+    <section class="py-20 bg-hiranya-primary">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-hiranya-accent text-xl font-bold uppercase tracking-widest">Amenities</span>
+                <h2 class="text-hiranya-light text-5xl font-serif font-bold mt-2">Farmstay Facilities</h2>
+                <div class="w-20 h-1 bg-hiranya-accent mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Turf -->
+                <div class="amenity-card bg-white rounded-xl p-6 text-center shadow-md hover:shadow-xl transition duration-300">
+                    <div class="amenity-icon mb-4">
+                        <i class="fas fa-dice"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-hiranya-dark mb-2">Games</h3>
+                    <p class="text-gray-600">Fun-filled indoor and outdoor games for guests of all ages</p>
+                </div>
+
+                <!-- AC Accommodation -->
+                <div class="amenity-card bg-white rounded-xl p-6 text-center shadow-md hover:shadow-xl transition duration-300">
+                    <div class="amenity-icon mb-4">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-hiranya-dark mb-2">AC Accommodation</h3>
+                    <p class="text-gray-600">Experience ultimate comfort with air conditioning available in every room</p>
+                </div>
+                
+                <!-- Kitchen -->
+                <div class="amenity-card bg-white rounded-xl p-6 text-center shadow-md hover:shadow-xl transition duration-300">
+                    <div class="amenity-icon mb-4">
+                        <i class="fas fa-kitchen-set"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-hiranya-dark mb-2">Fully Equipped Kitchen</h3>
+                    <p class="text-gray-600">Perfect for preparing breakfast, lunch, high tea, and dinner just the way you like it</p>
+                </div>
+                
+                <!-- Swimming Pool -->
+                <div class="amenity-card bg-white rounded-xl p-6 text-center shadow-md hover:shadow-xl transition duration-300">
+                    <div class="amenity-icon mb-4">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-hiranya-dark mb-2">Swimming Pool</h3>
+                    <p class="text-gray-600">Enjoy our swimming pool amidst the greens</p>
+                </div>
+                
+                <!-- Swimming Pool 
+                <div class="amenity-card bg-white rounded-xl p-6 text-center shadow-md hover:shadow-xl transition duration-300">
+                    <div class="amenity-icon mb-4">
+                        <i class="fas fa-swimming-pool"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-hiranya-dark mb-2">Swimming Pool</h3>
+                    <p class="text-gray-600">Enjoy our swimming pool amidst the greens</p>
+                </div>
+                -->
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Parallax Section -->
+    <section class="parallax py-32 bg-fixed" style="background-image: url('public/assets/images/background/pool-view.jpg')">
+        <div class="container mx-auto px-6 text-center text-white">
+            <div class="max-w-3xl mx-auto bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-2xl">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-6">Experience Nature's Comfort</h2>
+                <p class="text-xl mb-8">Our Farmstay brings you the perfect blend of modern amenities and natural beauty</p>
+                <button class="bg-white text-hiranya-dark hover:bg-gray-100 px-8 py-3 rounded-full font-medium text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">View Gallery</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Information Section -->
+    <section class="py-20 bg-hiranya-primary text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="font-bold uppercase tracking-widest">Farmstay Information</span>
+                <h2 class="text-4xl font-serif font-bold mt-2">Plan Your Stay</h2>
+                <div class="w-20 h-1 bg-white mx-auto mt-4"></div>
+            </div>
+            
+            <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-serif font-bold mb-6 flex items-center">
+                        <i class="fas fa-clock mr-3 text-hiranya-secondary"></i>
+                        Check In/Out
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center pb-4 border-b border-white/20">
+                            <span class="font-medium">CHECK IN:</span>
+                            <span class="text-lg font-bold">12.00 NOON</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-4 border-b border-white/20">
+                            <span class="font-medium">CHECK OUT:</span>
+                            <span class="text-lg font-bold">10:00 AM</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-serif font-bold mb-6 flex items-center">
+                        <i class="fas fa-child mr-3 text-hiranya-secondary"></i>
+                        Child Policy
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center pb-4 border-b border-white/20">
+                            <span class="font-medium">5 and below:</span>
+                            <span class="text-lg font-bold text-hiranya-secondary">FREE</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-4 border-b border-white/20">
+                            <span class="font-medium">8 and below:</span>
+                            <span class="text-lg font-bold">Half Rate</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium">9 and above:</span>
+                            <span class="text-lg font-bold">Full Rate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-hiranya-light">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-hiranya-primary font-bold uppercase tracking-widest">Gallery</span>
+                <h2 class="text-4xl font-serif font-bold mt-2">Hiranya Farms at a glance</h2>
+                <div class="w-20 h-1 bg-hiranya-accent mx-auto mt-4"></div>
+            </div>
+            
+            <div class="relative overflow-hidden rounded-3xl shadow-2xl">
+                <!-- Slider Controls -->
+                <button @click="prev" class="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-hiranya-primary w-12 h-12 rounded-full flex items-center justify-center shadow-xl transition-all duration-300 transform hover:scale-110">
+                    <i class="fas fa-chevron-left text-xl"></i>
+                </button>
+                <button @click="next" class="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-hiranya-primary w-12 h-12 rounded-full flex items-center justify-center shadow-xl transition-all duration-300 transform hover:scale-110">
+                    <i class="fas fa-chevron-right text-xl"></i>
+                </button>
+                
+                <!-- Slider Track -->
+                <div class="flex transition-transform duration-700 ease-out" 
+                     :style="`transform: translateX(-${currentSlide * 100}%)`">
+                    <template x-for="(slide, index) in slides" :key="slide.id">
+                        <div class="w-full flex-shrink-0">
+                            <div class="relative h-96 md:h-[32rem] overflow-hidden">
+                                <img :src="slide.url" :alt="slide.alt" class="w-full h-full object-contain">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent flex items-end p-8 md:p-12">
+                                    <div>
+                                        <h3 x-text="slide.alt" class="text-white text-2xl md:text-3xl font-serif font-bold mb-2"></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+                
+                <!-- Slider Indicators -->
+                <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 flex space-x-2">
+                    <template x-for="(slide, index) in slides" :key="slide.id">
+                        <button @click="goToSlide(index)" 
+                                class="w-3 h-3 rounded-full transition-all duration-300"
+                                :class="{'bg-white w-8': currentSlide === index, 'bg-white/50': currentSlide !== index}">
+                        </button>
+                    </template>
+                </div>
+            </div>
+            
+            <!-- Thumbnail Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mt-8">
+                <template x-for="(slide, index) in slides" :key="slide.id">
+                    <button @click="goToSlide(index)" 
+                            class="relative h-32 md:h-40 overflow-hidden rounded-xl shadow-lg transition-all duration-300"
+                            :class="{'ring-4 ring-hiranya-primary scale-105': currentSlide === index, 'hover:scale-105': currentSlide !== index}">
+                        <img :src="slide.url" :alt="slide.alt" class="w-full h-full object-contain">
+                        <div class="absolute inset-0 bg-black/30 flex items-center justify-center" x-show="currentSlide === index">
+                            <i class="fas fa-check text-white text-2xl"></i>
+                        </div>
+                    </button>
+                </template>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hurry up Banner -->
+    <section class="parallax py-32 bg-fixed" style="background-image: url('public/assets/images/background/1.jpg')">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-4xl mx-auto bg-white/10 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-2xl">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">Fast, Fun & Unforgettable, Get It Now!</h2>
+                <p class="text-xl md:text-2xl mb-8">Turn ordinary weekdays into <span class="font-bold">extraordinary getaways</span></p>
+                
+                <!-- Dual Contact Buttons -->
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <!-- WhatsApp Button -->
+                    <a href="https://wa.me/919876543210?text=Hi%20hiranya%20Farms,%20I%20want%20to%20claim%20the%20weekday%20discount%20offer"
+                       class="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-medium transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center">
+                        <i class="fab fa-whatsapp text-xl mr-2"></i> WhatsApp Now
+                    </a>
+                    
+                    <!-- OR Divider -->
+                    <div class="flex items-center justify-center my-2 sm:my-0">
+                        <span class="mx-4">OR</span>
+                    </div>
+                    
+                    <!-- Call Button -->
+                    <a href="tel:+91-9876543210"
+                       class="bg-hiranya-primary hover:bg-hiranya-dark text-white px-8 py-4 rounded-full font-medium transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center">
+                        <i class="fas fa-phone-alt mr-2"></i> Call Directly
+                    </a>
+                </div>
+            
+                <!-- Additional Contact Info 
+                <p class="text-sm mt-6 opacity-80">
+                    <i class="fas fa-clock mr-1"></i> Booking assistance available 8AM-10PM daily
+                </p>  -->      
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Reviews Section -->
+    <section class="py-16 bg-hiranya-secondary">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <!--<span class="text-hiranya-primary font-bold uppercase tracking-widest">Testimonials</span>-->
+                <h2 class="text-4xl font-serif font-bold mt-2">Google Location</h2>
+                <div class="w-20 h-1 bg-hiranya-accent mx-auto mt-4"></div>
+            </div>
+            
+            <!-- Google Maps Embed (Reviews) -->
+            <div class="max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3757.6113767926786!2d73.22226427591589!3d19.64390553389746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be771325290dbb7%3A0x23b6302699d2b240!2sMadhu%20Paresh%20Farm!5e0!3m2!1sen!2sin!4v1756710137497!5m2!1sen!2sin" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-hiranya-dark text-white pt-20 pb-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div>
+                    <img class="h-20 md:h-40" src="public/assets/images/logo/hiranya-white.png">                    
+                    <p class="mb-6 text-gray-300">Breathe Easy, Live Slowly, Find Yourself in Nature’s Embrace.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/hiranyafarmswada" class="w-12 h-12 rounded-full bg-hiranya-primary/20 hover:bg-hiranya-primary flex items-center justify-center transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/hiranyafarmswada" class="w-12 h-12 rounded-full bg-hiranya-primary/20 hover:bg-hiranya-primary flex items-center justify-center transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <!-- <a href="#" class="w-12 h-12 rounded-full bg-hiranya-primary/20 hover:bg-hiranya-primary flex items-center justify-center transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-hiranya-primary/20 hover:bg-hiranya-primary flex items-center justify-center transition duration-300">
+                            <i class="fab fa-tripadvisor"></i>
+                        </a> -->
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Contact Information</h4>
+                    <address class="not-italic text-gray-300 space-y-4">
+                        <p class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-hiranya-secondary mt-1 mr-3"></i>
+                            <span>Vadavali Tarf Sonale,<br> Sonale Bk.,<br>Wada, Maharashtra 421303</span>
+                        </p>
+                        <p class="flex items-center">
+                            <i class="fas fa-phone-alt text-hiranya-secondary mr-3"></i>
+                            +91-9876543210
+                        </p>
+                        <p class="flex items-center">
+                            <i class="fas fa-envelope text-hiranya-secondary mr-3"></i>
+                            hiranyafarmswada@gmail.com
+                        </p>
+                    </address>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Quick Links</h4>
+                    <div class="space-y-3 text-gray-300">
+                        <a href="#" class="flex items-center hover:text-hiranya-secondary transition duration-300">
+                            <i class="fas fa-chevron-right text-xs mr-2"></i> Home
+                        </a>
+                        <a href="#about" class="flex items-center hover:text-hiranya-secondary transition duration-300">
+                            <i class="fas fa-chevron-right text-xs mr-2"></i> About Us
+                        </a>
+                        <a href="#gallery" class="flex items-center hover:text-hiranya-secondary transition duration-300">
+                            <i class="fas fa-chevron-right text-xs mr-2"></i> Gallery
+                        </a>
+                        <a href="#contact" class="flex items-center hover:text-hiranya-secondary transition duration-300">
+                            <i class="fas fa-chevron-right text-xs mr-2"></i> Contact
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p> 2025 Hiranya Farms, Wada. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- sticky desktop bar contact -->
+    <div class="hidden md:block fixed bottom-0 left-0 right-0 bg-hiranya-dark text-white py-3 z-40">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div>
+                <span class="font-bold">Ready to book your stay?</span>
+                <span class="ml-2">Call us for best rates!</span>
+            </div>
+            <a href="tel:+91-9876543210" class="bg-hiranya-accent hover:bg-hiranya-primary px-6 py-2 rounded-lg font-medium transition duration-300">
+                <i class="fas fa-phone mr-2"></i> +91-9876543210
+            </a>
+        </div>
     </div>
-  </div>
+
+    <!--  whats app button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="https://wa.me/919876543210" class="flex items-center justify-center w-16 h-16 rounded-full bg-hiranya-primary hover:bg-hiranya-dark text-white shadow-xl animate-bounce">
+            <i class="fas fa-phone text-2xl"></i>
+        </a>
+    </div> 
 </body>
-</html
+
+</html>
