@@ -210,6 +210,12 @@
             background-size: cover;
         }
 
+		@media (max-width: 768px) {
+  		.parallax {
+    		background-attachment: scroll; /* Fixes mobile zoom issue */
+			}
+		}
+
         /* Amenities icons */
         .amenity-icon {
             width: 80px;
