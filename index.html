@@ -183,10 +183,16 @@
         
         .hero-image {
             background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://raw.githubusercontent.com/scpdigital/hiranyafarmswada/main/main-bg.jpeg');
-            background-size: contain;
+            background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
+
+		@media (max-width: 768px) {
+  		.hero-image {
+    		background-attachment: scroll; /* Fixes mobile zoom issue */
+			}
+		}
         
         .room-card {
             transition: all 0.3s ease;
