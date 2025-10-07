@@ -729,7 +729,7 @@
         </div>
 
         <div class="max-w-3xl mx-auto p-8 md:p-12 bg-white rounded-xl shadow-2xl border border-hiranya-secondary/50">
-            <form action="https://docs.google.com/forms/d/e/1FAIpQLSejqF5A5uIZFNbfQmqGiPng8TShhpyvvsDmeOGGHj9X7DL4hw/formResponse" method="POST" target="google-target" @submit="onFormSubmit" class="space-y-6">
+            <form action="https://docs.google.com/forms/d/e/1FAIpQLSejqF5A5uIZFNbfQmqGiPng8TShhpyvvsDmeOGGHj9X7DL4hw/formResponse" method="POST" target="google-target" x-ref="bookingForm" x-on:submit="onFormSubmit(); $nextTick(() => { $refs.bookingForm.reset(); })" class="space-y-6">
                 <div>
                     <label for="name" class="block text-lg font-medium text-hiranya-dark mb-2">Your Full Name <span class="text-red-500">*</span></label>
                     <input type="text" id="name" name="entry.334267173" required
